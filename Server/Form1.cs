@@ -1,12 +1,6 @@
 ﻿using Common;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,37 +29,35 @@ namespace Server0
         void Connect()
         {
             int port = 8005;
-            Log("Получение имя компьютера...");
+            Log("Getting machine name...");
             string host = Dns.GetHostName();
-            Log("Имя компьютера " + host);
+            Log("Machine name " + host);
 
-            Log("Получение ip-адреса... ");
+            Log("Getting ip-address... ");
             IPAddress IP = Dns.GetHostAddresses(host)[1];
-            Log("IP адреса: " + IP.ToString());
+            Log("IP addresses: " + IP.ToString());
 
-            Log("Получаем адреса для запуска сокета...");
+            Log("Getting address for starting socket...");
             IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(IP.ToString()), port);
-            Log("Адрес: " + ipPoint);
-            // создаем сокет
+            Log("Address: " + ipPoint);
+
             var listenSocket = new CListeningSocket();
             try
             {
                 CPool cPool = new CPool(listenSocket);
-                // связываем сокет с локальной точкой, по которой будем принимать данные
                 listenSocket.Bind(ipPoint);
-                // начинаем прослушивание
                 listenSocket.Listen(10);
 
-                label2.Invoke(new Action(() => { label2.Text = "Сервер запущен"; }));
-                Log(IP.ToString() + " Сервер запущен. Ожидание подключений...");
+                label2.Invoke(new Action(() => { label2.Text = "Server has been started"; }));
+                Log(IP.ToString() + "Server started. Waiting for client connection...");
 
                 while (true)
                 {
                     var res = cPool.ProcessAccept();
-                    Log($"Получено сообщение {res.StringResult}");
-                    var contentOfRow = listenSocket.GetRowContent(res.StringResult);
-                    cPool.Send(contentOfRow, res.handler);
-                    // закрываем сокет
+                    Log($"Received message: {res.StringResult}");
+
+                    //Sending to client
+                    cPool.Send($"We received message {res.StringResult} from you. You are very COOOOl", res.handler);
                     cPool.ProcessClose(res.Item2);
                 }
             }

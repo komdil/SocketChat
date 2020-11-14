@@ -20,9 +20,9 @@ namespace Common
 
         public string ProcessRead()
         {
-            // получаем ответ
-            var data = new byte[256]; // буфер для ответа
-            int bytes = 0; // количество полученных байт
+            // Receiving request
+            var data = new byte[256];
+            int bytes = 0;
             do
             {
                 bytes = Socket.Receive(data, data.Length, 0);
@@ -43,7 +43,7 @@ namespace Common
         public (string StringResult, Socket handler) ProcessAccept()
         {
             var handler = Socket.Accept();
-            byte[] data = new byte[256]; // буфер для получаемых данных
+            byte[] data = new byte[256]; 
             string response = string.Empty;
             do
             {
@@ -57,7 +57,7 @@ namespace Common
                 {
                     Console.WriteLine("Error: " + ex.Message);
                     Console.WriteLine("StackTrace: " + ex.StackTrace);
-                    response = "Передача данных не удалась!";
+                    response = "Communication error!";
                 }
                 return (response, handler);
             }

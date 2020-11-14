@@ -59,18 +59,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(28, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Номер строки";
+            this.label2.Text = "Message";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(28, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "IP адрес сервера";
+            this.label1.Text = "Server IP address";
             // 
             // textBox1
             // 
@@ -92,9 +92,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(28, 111);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(110, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Лог";
+            this.label3.Text = "Response from server";
             // 
             // ClientForm
             // 
@@ -109,7 +109,7 @@
             this.Controls.Add(this.textBoxString);
             this.Controls.Add(this.buttonSend);
             this.Name = "ClientForm";
-            this.Text = "Клиент";
+            this.Text = "Socket client app";
             this.ResumeLayout(false);
             this.PerformLayout();
 

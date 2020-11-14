@@ -1,8 +1,6 @@
 ﻿using Common;
 using System;
 using System.Net;
-using System.Net.Sockets;
-using System.Text;
 using System.Windows.Forms;
 
 
@@ -10,7 +8,7 @@ namespace Client
 {
     public partial class ClientForm : Form
     {
-        static int port = 8005; // порт сервера
+        static int port = 8005;
         public ClientForm()
         {
             InitializeComponent();
@@ -27,7 +25,7 @@ namespace Client
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ошибка при подключение. ВВедите правильный адрес \n" + ex.Message);
+                    MessageBox.Show("Connection error. Wrong IP address\n" + ex.Message);
                 }
                 if (ipPoint != null)
                 {
@@ -40,7 +38,7 @@ namespace Client
             }
             catch (Exception ex)
             {
-                richTextBox1.AppendText("Произошла ошибка" + ex.Message + "\n");
+                richTextBox1.AppendText("Communication error" + ex.Message + "\n");
             }
         }
 
