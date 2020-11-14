@@ -1,8 +1,6 @@
-# SocketChat
-Client-Server application using Socket
-
 # Starting server:
-`int port = 8005;
+```
+int port = 8005;
 
 string host = Dns.GetHostName();
 
@@ -16,20 +14,23 @@ CPool cPool = new CPool(listenSocket);
 
 listenSocket.Bind(ipPoint);
 
-listenSocket.Listen(10);`
+listenSocket.Listen(10);
+```
 
 
 ![image](https://user-images.githubusercontent.com/50167116/99145710-d248d000-2692-11eb-884d-e20298c9c495.png)
 
 
 # Connecting to the server from the client:
-`var ipPoint = new IPEndPoint(IPAddress.Parse("YOUR IP ADDRESS"), port);
+```
+var ipPoint = new IPEndPoint(IPAddress.Parse("YOUR IP ADDRESS"), port);
 
 CClientSocket socket = new CClientSocket();
 
 CPool cPool = new CPool(socket);
 
-cPool.Init(ipPoint);`
+cPool.Init(ipPoint);
+```
 
 
 ![image](https://user-images.githubusercontent.com/50167116/99145749-0fad5d80-2693-11eb-8917-752c90fef891.png)
