@@ -18,6 +18,7 @@ listenSocket.Bind(ipPoint);
 
 listenSocket.Listen(10);`
 
+
 ![image](https://user-images.githubusercontent.com/50167116/99145710-d248d000-2692-11eb-884d-e20298c9c495.png)
 
 
@@ -42,7 +43,6 @@ Log($"Received message: {res.StringResult}");`
 ![image](https://user-images.githubusercontent.com/50167116/99145758-25228780-2693-11eb-8f6a-bbb3c613a460.png)
 
 
-
 # Sending a message from the server to the client:
 ` cPool.Send($"We received message {res.StringResult} from you. You are very COOOOl", res.handler);`
                  
@@ -52,5 +52,4 @@ Log($"Received message: {res.StringResult}");`
 `cPool.ProcessRead()`
 
 ![image](https://user-images.githubusercontent.com/50167116/99145899-8b5bda00-2694-11eb-9877-03ae069f4785.png)
-
 
